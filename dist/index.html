@@ -1,0 +1,40 @@
+
+<body>
+    <div class="container">
+        <h2 style="margin-top:10vh;">Instagram photos</h2>
+        <input type='text' id="url" style="width:100%">
+        <br>
+        <br>
+        <button id="find" onclick="go()">Show Post</button>
+        <br>
+        <br>
+        <p id="validation"></p>
+        <br>
+        <p>made by <a href="www.mrinalraj.com">mrinal</a></p>
+    </div>
+    <style>
+        .container{
+            margin: 0 auto;
+            width: 30%;
+        }
+    </style>
+</body>
+<script type="text/javascript">
+    function go(){
+        let url= document.getElementById('url').value;
+        
+        if(url.includes("www.instagram.com/p/")){
+            let id=url.split("/");
+            window.location.href='http://localhost:5000/api/p/'+id[4];
+        }
+        else if(url===""){
+            document.getElementById('validation').innerHTML="link cant be empty";
+        }
+        else{
+            document.getElementById('validation').innerHTML="not a valid instagram url";
+            //document.write("not found")
+            console.log("not found")
+        }
+    }
+    
+</script>

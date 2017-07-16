@@ -53,13 +53,22 @@ app.get("/api/p/:id", (req, res, next) => {
       } else {
         let $ = cheerio.load(body, { xmlMode: true })
         let profile_pic = $("meta[property='og:image']").attr("content")
-        if (profile_pic) {
+        let profile_video = $("meta[property='og:video']").attr("content")
+        console.log(profile_pic, profile_video)
+        if (profile_video) {
           //res.send(JSON.stringify({ "error": 0, "message": "Successfully Retrieved Image Link", "profile_pic_url": profile_pic }))
             res.writeHead(302, {
+              'location': profile_video
+          });
+            res.end();
+        }
+          else if(profile_pic){
+              res.writeHead(302, {
               'location': profile_pic
           });
             res.end();
-        } else {
+          }
+          else {
           res.status(400).write(JSON.stringify({ "error": 1, "message": "Invalid post id" }))
           res.end()
         }

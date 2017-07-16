@@ -11,7 +11,7 @@
         <br>
         <p id="validation"></p>
         <br>
-        <p>made by <a href="www.mrinalraj.com">mrinal</a></p>
+        <p>made by <a href="http://www.mrinalraj.com">mrinal</a></p>
     </div>
     <style>
         .container{
@@ -24,7 +24,7 @@
     function go(){
         let url= document.getElementById('url').value;
         
-        if(url.includes("www.instagram.com/p/")){
+        if(url.includes("instagram.com/p/")){
             let id=url.split("/");
             window.location.href='http://insta-photo.herokuapp.com/api/p/'+id[4];
         }

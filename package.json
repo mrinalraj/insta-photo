@@ -2,9 +2,6 @@
   "name": "insta-scrapper",
   "version": "1.0.0",
   "description": "Instagram Profile Picture Scrapper",
-  "engines": {
-    "node": "8.1.x"
-  },
   "scripts": {
     "start": "node insta-scrapper.js",
     "test": "echo \"Error: no test specified\" && exit 1"
